@@ -138,6 +138,24 @@ contract NoLossLottery is ReentrancyGuard {
         emit DepositMade(msg.sender, amount);
     }
 
+    function getParticipantsAndDeposits() external view returns (address[] memory addresses, uint256[] memory deposits) {
+        uint256 count = participants.length;
+        addresses = new address[](count);
+        deposits = new uint256[](count);
+        
+        for (uint256 i = 0; i < count; i++) {
+            addresses[i] = participants[i];
+            deposits[i] = userDeposits[participants[i]];
+        }
+        
+        return (addresses, deposits);
+    }
+    
+    function getParticipantsCount() external view returns (uint256) {
+        return participants.length;
+    }
+
+
 // Users initiate withdrawal of their deposit
 function initiateWithdrawal() external nonReentrant {
 uint256 susdeAmount = userSusdeBalances[msg.sender];
