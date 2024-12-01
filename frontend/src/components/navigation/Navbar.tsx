@@ -21,7 +21,7 @@ export function Navbar() {
             >
               <Logo className="h-10 w-10" />
               <span className="ml-3 text-xl font-bold font-display bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
-                YieldJackpot
+                Magic
               </span>
             </motion.div>
           </div>
