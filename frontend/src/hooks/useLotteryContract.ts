@@ -64,6 +64,7 @@ export function useLotteryContract() {
           totalDeposits,
           participants,
           lastDrawTime,
+          participantsData,
           // interestEarned,
         ] = await Promise.all([
           contract.enrollmentStart(),
@@ -71,8 +72,16 @@ export function useLotteryContract() {
           contract.totalDeposits(),
           contract.getParticipantsCount(),
           contract.lastDrawTime(),
+          contract.getParticipantsAndDeposits(),
           // contract.calculateTotalInterest(),
         ]);
+
+        const participantsList = participantsData
+          ? participantsData[0].map((address: string, index: number) => ({
+              address,
+              deposit: ethers.formatUnits(participantsData[1][index], 18),
+            }))
+          : [];
 
         return {
           enrollmentStart: Number(enrollmentStart),
@@ -80,6 +89,7 @@ export function useLotteryContract() {
           totalDeposits: ethers.formatEther(totalDeposits),
           totalParticipants: participants,
           lastDrawTime: Number(lastDrawTime),
+          participants: participantsList,
           // prizePool: ethers.formatEther(interestEarned),
         };
       } catch (error) {

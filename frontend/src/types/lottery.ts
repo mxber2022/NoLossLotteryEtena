@@ -19,3 +19,8 @@ export interface UserStats {
   isParticipant: boolean;
   withdrawalRequest: WithdrawalRequest | null;
 }
+
+export interface Participant {
+  address: string;
+  deposit: string;
+}

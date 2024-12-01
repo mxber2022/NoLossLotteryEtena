@@ -26,6 +26,7 @@ export const LOTTERY_ABI = [
   "function userDeposits(address) view returns (uint256)",
   "function participants() view returns (uint256)",
   "function getParticipantsCount() view returns (uint256)",
+  "function getParticipantsAndDeposits() external view returns (address[] memory addresses, uint256[] memory deposits)",
 
   // User functions
   "function deposit(uint256 amount)",
