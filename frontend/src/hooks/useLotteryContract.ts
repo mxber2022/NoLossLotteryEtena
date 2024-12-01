@@ -110,7 +110,7 @@ export function useLotteryContract() {
 
       const contractWithSigner = contract.connect(signer);
       const parsedAmount = ethers.parseEther(amount);
-
+      //@ts-ignore
       const tx = await contractWithSigner.deposit(parsedAmount);
       await tx.wait();
 
