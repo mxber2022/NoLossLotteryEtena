@@ -5,6 +5,7 @@ import { formatAmount } from "../../utils/format";
 import { LotteryState } from "../../types/lottery";
 import { useState } from "react";
 import { ParticipantsList } from "./ParticipantLists";
+import { InfoTooltip } from "../ui/InfoTooltip";
 
 interface Props {
   stats: LotteryState;
