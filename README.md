@@ -2,8 +2,6 @@
 
 A next-generation lottery system where you can't lose!
 
-![No Loss Lottery](https://i.imgur.com/example.png)
-
 ## ✨ Features
 
 - 🛡️ **Risk-Free Participation**: Your principal amount is always safe and can be withdrawn
